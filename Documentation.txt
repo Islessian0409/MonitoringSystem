@@ -1,0 +1,5 @@
+1. Line 1: Dependency. For running the index.js to the v8 engine.
+2. Line 2: Port number assigned to a variable.
+3. Line 4-6: Creating a server with request and response callback.
+4. Line 8: a functionality that has a port where client can listen.
+5. Line 9: Just to notify us that the server is running.
