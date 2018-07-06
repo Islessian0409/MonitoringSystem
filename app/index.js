@@ -7,9 +7,11 @@ const server = http.createServer((req, res) => {
 	let path = parsedUrl.pathname;
 	let trimmedPath = path.replace(/^\/+|\+$/g, '');
 	let method = req.method.toLowerCase();
+	let queryStringObject = parsedUrl.query;
 	res.end("Hello World\n");
 	console.log("Request received from: " + trimmedPath);
 	console.log("HTTP Method: " + method);
+	console.log("Query String: ", queryStringObject);
 });
 
 server.listen(port);

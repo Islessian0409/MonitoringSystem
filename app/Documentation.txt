@@ -1,15 +1,17 @@
-Parsing HTTPMethods
+Parsing QueryStrings
 ===========================================
 Goal
-1. Get and display the HTTP method.
-2. Convert it to lowercase.
+1. Kunin ang queryString na galing kay user at idisplay.
 ===========================================
 
-1. let method : Mula sa request na parameter sa ginawa nating server kinuha lang natin ang value nito at ginamitan ng method na .method
+1. let queryStringObject : Kunin ang value ng parsedUrl at gawing value ang lahat ng susunod sa symbol na ?
+Note: Importante na maintindihan ang keys and values.
 
 Check: i-run ang program gamit ang command na sumusunod:
 1. node index.js
 2. Magbukas ng bagong terminal at itype ito:
-curl localhost:8000/dapat/get
+curl localhost:8000/info?firstName=edward
 
-Expected output: get
+Excepted Output:
+{ firstname:edward }
+Note: JSON format.
