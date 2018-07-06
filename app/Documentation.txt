@@ -1,0 +1,23 @@
+Parsing Request Paths
+===============================================
+Goal: 
+1. Kunin ang URL at i-parse.
+2. Kunin ang Path.
+3. Magbigay ng response.
+4. I-log ang ang request path (kung available o hindi)
+===============================================
+
+1. const url : Dependency -> Dahil kakailanganin natin kunin ang URL
+2. let parsedUrl : mula sa variable na url, ginamit natin ang method na parse na may dalawang parameter.
+- req.url : Ang itinype ni user na url.
+- true	  : Kung sakali na may binigay si user na handler o url i-store natin ito sa ating variable.
+3. let path : halimbawa valid ang binigay na url ni user nakastore it isa parsedUrl na kung saan kinukuha lang natin ang buong url at ini-assign kay path.
+4. let trimmedPath : Matapos makuha ang buong path na mula kay user kailangan nating matanggal ang mga hindi kailangan characters using regex ang unang parameter ay ang code para matanggal lahat ng hindi natin kailangan at ang pangalawang parameter ay para mapalitan ito ng empty string.
+5. Bago ipagpatuloy dapat itest muna natin kung gumagana ng tama ang ating mga ginawa sa pamamagitan ng pag-output.
+Note: Mas okay kung kada small additional functionality ay matest na muna bago ituloy para makaiwas sa mas madaming error.
+
+Check: i-run ang program gamit ang command na sumusunod:
+1. node index.js
+2. Magbukas ng bagong terminal at itype ito:
+curl localhost:8000/kahit/ano
+Expected output: Hello World at ang path na binigay ni user.

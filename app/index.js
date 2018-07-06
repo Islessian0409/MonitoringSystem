@@ -1,8 +1,13 @@
 const http = require('http');
+const url = require('url');
 const port = 8000;
 
 const server = http.createServer((req, res) => {
-	res.end('Hello world');
+	let parsedUrl = url.parse(req.url, true);
+	let path = parsedUrl.pathname;
+	let trimmedPath = path.replace(/^\/+|\+$/g, '');
+	res.end("Hello World\n");
+	console.log("Request received from: " + trimmedPath);
 });
 
 server.listen(port);
