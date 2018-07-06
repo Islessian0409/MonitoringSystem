@@ -1,17 +1,21 @@
-Parsing QueryStrings
+Parsing Request Headers
 ===========================================
 Goal
-1. Kunin ang queryString na galing kay user at idisplay.
+1. Kunin ang headers at ito dapat ay isang object.
 ===========================================
 
-1. let queryStringObject : Kunin ang value ng parsedUrl at gawing value ang lahat ng susunod sa symbol na ?
-Note: Importante na maintindihan ang keys and values.
+1. let headers - gamit ang method na .headers ay makukuha ni natin
+ang header ni user.
+Note: Gumamit ng postman.
 
-Check: i-run ang program gamit ang command na sumusunod:
+Check: Sundin ang mga hakbang na ito:
 1. node index.js
-2. Magbukas ng bagong terminal at itype ito:
-curl localhost:8000/info?firstName=edward
+2. Magbukas ng postman
+3. Piliin ang method na GET
+4. ilagay ang : localhost/8000
+5. headers > key: firstname | value : edward
+
 
 Excepted Output:
-{ firstname:edward }
-Note: JSON format.
+Check the headers on the terminal
+kung ano ang inilagay mo sa key value ng headers.
