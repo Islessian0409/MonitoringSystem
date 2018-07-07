@@ -1,17 +1,27 @@
-Parsing Payloads
+Routing Requests
 ===========================================
 Goal
-1. Kung sakaling may Payload. Kunin.
+1. Gumawa ng mga routes para sa navigation.
+2. Gamit ang mga handlers pwede kang mag specify ng location.
+3. Make sure lahat ng loopholes pagdating sa mga url ay na cover.
+4. Gamit ang chosenHandler ito ay ang magbibigay ng status sa client kung ito ba ay 200 o 404.
+5. Convert ang payload sa string
 ===========================================
 
-1. const StringDecoder : Dependency na kailangan natin para makuha ang payload mula sa user.
-2. let decoder : Ito ay isang object na kung saan may parameter na utf-8 for standard outputs.
-3. let buffer : isang variable na may empty string. Ito ang gagamitin nating lagayan ng lahat ng mga ipapasang value sa pamamagitan ng appending.
-4. req.on : 'data' isa itong event na ang ibig sabihin ay may ipapasang value, meron tayong callback na may parameter na data na ang purpose ay tuwing may bagong dadating na data mula sa user ay magagamit ang callback para paulit ulit natin itong mailagay sa empty string na buffer.
-5. Implementation ng ating callback ay tinawag ang ating variable na buffer na may empty string at ito ay dadagdagan ng laman mula sa ating decoder na my method na write na ang ibig sabihin ay idagdag sa value ng buffer kung ano ang value ng parameter neto na data.
-5.1 Isa pa sa kakayahan ng decoder natin ay kung ano ang ipasa sa kanya ng user ay magiging simpleng string lang ito.
-6. Sa oras na gumamit ng event tulad ng data hindi ito pwedeng mawalan ng partner na event na end. Meron itong callback pero wala itong parameter. At dahil ito ang isa sa magtatapos ng process mainam na ilipat natin ang mga output natin sa loob nito.
+1. Sa ganitong pagkakataon kung saan unique ang gagawin nating mga links para sa navigation mas okay ito kung gagamit tayo ng object.
+2. handlers -> Container ng ating mga links para sa user navigation base sa kanilang request.
+3. handlers.sample -> May dalawang parameter na data at callback. si callback ay function. nagpasa lang tayo ng dalawang parameter para dito.
+Note: Pwede kahit ilang parameter. basta malagyan ito ng mga value. At ang unang parameter natin ay Status code at ang pangalawa ay payload.
+4. handlers.notFound -> Mag callback lang tayo ng 404.
+5. let chosenHandler -> Ito ang magchecheck kung ang request route ni user ay available o hindi.
+6. let data -> ito ang response natin sa valid na route.
+7. chosenHandler parameters, data(variable), Statuscode - 200, 404, etc, payload kung meron.
+8. statusCode initialization -> ito ang mag ve-verify kung success o not found.
+9. Remember na ang payload ay isang object, at kung sakaling wala mang binigay na payload ang user e i default nya lang ito sa empty object.
+
 Excepted Output:
+Lahat ng links ay may kanya kanyang response.
+
 
 I-test ang program:
 1. I-run ang program : node index.js
@@ -22,3 +32,4 @@ I-test ang program:
 6. Sa Halip na get Gawin mong Post
 7. Piliin ang raw sa body Maglagay ng laman sa textbox.
 8. Check mo ang result sa terminal.
+9. Run again pero this time ilagay mo si sample route.
