@@ -1,21 +1,24 @@
-Parsing Request Headers
+Parsing Payloads
 ===========================================
 Goal
-1. Kunin ang headers at ito dapat ay isang object.
+1. Kung sakaling may Payload. Kunin.
 ===========================================
 
-1. let headers - gamit ang method na .headers ay makukuha ni natin
-ang header ni user.
-Note: Gumamit ng postman.
-
-Check: Sundin ang mga hakbang na ito:
-1. node index.js
-2. Magbukas ng postman
-3. Piliin ang method na GET
-4. ilagay ang : localhost/8000
-5. headers > key: firstname | value : edward
-
-
+1. const StringDecoder : Dependency na kailangan natin para makuha ang payload mula sa user.
+2. let decoder : Ito ay isang object na kung saan may parameter na utf-8 for standard outputs.
+3. let buffer : isang variable na may empty string. Ito ang gagamitin nating lagayan ng lahat ng mga ipapasang value sa pamamagitan ng appending.
+4. req.on : 'data' isa itong event na ang ibig sabihin ay may ipapasang value, meron tayong callback na may parameter na data na ang purpose ay tuwing may bagong dadating na data mula sa user ay magagamit ang callback para paulit ulit natin itong mailagay sa empty string na buffer.
+5. Implementation ng ating callback ay tinawag ang ating variable na buffer na may empty string at ito ay dadagdagan ng laman mula sa ating decoder na my method na write na ang ibig sabihin ay idagdag sa value ng buffer kung ano ang value ng parameter neto na data.
+5.1 Isa pa sa kakayahan ng decoder natin ay kung ano ang ipasa sa kanya ng user ay magiging simpleng string lang ito.
+6. Sa oras na gumamit ng event tulad ng data hindi ito pwedeng mawalan ng partner na event na end. Meron itong callback pero wala itong parameter. At dahil ito ang isa sa magtatapos ng process mainam na ilipat natin ang mga output natin sa loob nito.
 Excepted Output:
-Check the headers on the terminal
-kung ano ang inilagay mo sa key value ng headers.
+
+I-test ang program:
+1. I-run ang program : node index.js
+2. Buksan ang Postman.
+3. Maglagay ng key value para sa header.
+4. maglagay ng url path.
+5. Gumawa ng query String.
+6. Sa Halip na get Gawin mong Post
+7. Piliin ang raw sa body Maglagay ng laman sa textbox.
+8. Check mo ang result sa terminal.
